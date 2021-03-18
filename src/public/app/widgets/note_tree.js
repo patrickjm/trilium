@@ -797,10 +797,8 @@ export default class NoteTreeWidget extends TabAwareWidget {
 
             const node = await this.expandToNote(activeContext.notePath);
 
-            if (node) {
-                await node.makeVisible({scrollIntoView: true});
-                node.setActive(true, {noEvents: true, noFocus: false});
-            }
+            await node.makeVisible({scrollIntoView: true});
+            node.setActive(true, {noEvents: true, noFocus: false});
         }
     }
 
@@ -853,11 +851,7 @@ export default class NoteTreeWidget extends TabAwareWidget {
                             // these are real notes with real notePath, user can display them in a detail
                             // but they don't have a node in the tree
 
-                            const childNote = await treeCache.getNote(childNoteId);
-
-                            if (!childNote || childNote.type !== 'image') {
-                                ws.logError(`Can't find node for child node of noteId=${childNoteId} for parent of noteId=${parentNode.data.noteId} and hoistedNoteId=${hoistedNoteService.getHoistedNoteId()}, requested path is ${notePath}`);
-                            }
+                            ws.logError(`Can't find node for child node of noteId=${childNoteId} for parent of noteId=${parentNode.data.noteId} and hoistedNoteId=${hoistedNoteService.getHoistedNoteId()}, requested path is ${notePath}`);
                         }
 
                         return;
