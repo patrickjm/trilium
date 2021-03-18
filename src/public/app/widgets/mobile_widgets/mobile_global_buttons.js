@@ -7,11 +7,9 @@ const WIDGET_TPL = `
         display: flex;
         flex-shrink: 0;
         justify-content: space-around;
-        padding: 0px 0 3px 0;
+        padding: 3px 0 3px 0;
+        margin: 0 10px 0 16px;
         font-size: larger;
-        position: absolute;
-        top: 8px;
-        width: 100%;
     }
     </style>
 
